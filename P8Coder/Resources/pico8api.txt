@@ -1,0 +1,74 @@
+load(filename) -- load cart
+save(filename) -- save cart
+folder() -- open folder
+ls() -- list items
+run() -- boot cart
+resume() -- resume cart execution
+reboot() -- reboot pico8
+stat(x) -- 0 = mem; 1 = cpu;
+info() -- print cart info
+time() -- returns seconds since last reboot
+flip() -- flip screen back buffer
+printh(str) -- print string to terminal
+clip([x, y, w, h]) -- set screen clipping region
+pget(x, y) -- get pixel colour
+pset(x, y, [c]) -- set pixel colour
+sget(x, y) -- get spritesheet pixel colour
+sset(x, y, [c]) -- set spritesheet pixel colour
+fget(n, [f]) -- get values of sprite flags
+fset(n, [f], v) -- set values of sprite flags
+print(str, [x, y, [col]]) -- print string
+cursor(x, y) -- set cursor and CR/LF margin position
+color(col) -- set default color
+cls() -- clear screen
+camera([x, y]) -- set camera position
+circ(x, y, r, [col]) -- draw circle
+circfill(x, y, r, [col]) -- draw filled circle
+line(x0, y0, x1, y1, [col]) -- draw line
+rect(x0, y0, x1, y1, [col]) -- draw rectangle
+rectfill(x0, y0, x1, y1, [col]) -- draw filled rectangle
+pal(c0, c1, [p]) -- switch colour 0 to colour 1; p = 0 = draw palette; p = 1 = screen palette
+palt(c, t) -- set transparency for colour to t (bool)
+spr(n, x, y, [w, h], [flip_x], [flip_y]) -- draw sprite
+sspr(sx, sy, sw, sh, dx, dy, [dw, dh], [flip_x], [flip_y]) -- draw texture from spritesheet
+add(t, v) -- add v to t
+del(t, v) -- delete first instance of v in t
+all(t) -- used in 'for v in all(t)' loops
+count(t) -- returns number of elements in the table
+foreach(t, f) -- call f() for each v in t
+pairs(t) -- used in 'for k,v in pairs(t)' loops
+btn([i, [p]]) -- get button i state for player p
+btnp([i, [p]]) -- was button just pressed ? turbo after 12 frames
+sfx(n, [channel, [offset]]) -- play sfx, -1: stop in channel, -2: release loop in channel
+music([n, [fade_len, [channel_mask]]]) -- play music, -1: stop
+mget(x, y) -- get map value
+mset(x, y, v) -- set map value
+map(cel_x, cel_y, sx, sy, cel_w, cel_h, [layer]) -- draw map, layers from flags, sprite 0 is empty
+peek(addr) -- read byte in ram address
+poke(addr, val) -- write val in ram address
+memcpy(dest_addr, src_addr, len) -- copy bytes
+reload(dest_addr, src_addr, len) -- copy bytes from rom to ram
+cstore(dest_addr, src_addr, len) -- copy bytes from ram to rom
+memset(dest_addr, val, len) -- set len bytes to val
+max(x, y) -- x/y maximum
+min(x, y) -- x/y minimum
+mid(x, y, z) -- x/y/z middle value
+sgn(x) -- returns argument sign, -1, 0, 1
+flr(x) -- round down
+cos(x) -- x cosine, [0..1]
+sin(x) -- x sine, [0..1]
+atan2(dx, dy) -- convert (dx, dy) to an angle in [0..1]
+sqrt(x) -- x square root
+abs(x) -- x absolute value
+rnd(x) -- random, 0 <= n < x
+srand(x) -- set random seed
+band(x, y) -- bitwise conjunction
+bor(x, y) -- bitwise disjunction
+bxor(x, y) -- bitwise exclusive disjunction
+bnot(x) -- bitwise negation
+shl(x, y) -- shift left
+shr(x, y) -- shift right
+sub(str, from, [to]) -- substring
+cartdata(id) -- open cart data named id (once per execution!)
+dget(idx) -- get number at index
+dset(idx, val) -- set number at index to value
