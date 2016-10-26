@@ -1,5 +1,7 @@
 # P8Coder
-P8Coder is a handy little tool that replaces the lua code in pico-8 cartridges (p8) with the code you write in P8Coder (Windows only).
+P8Coder is a handy little tool that replaces the lua code in pico-8 cartridges (p8) with the code you write in P8Coder (Windows only, untested with Mono).
+
+[Author release blog post](http://blog.thrill-project.com/p8coder-pico-8-programming-tool/)
 
 It allows to group functions (any code actually) that belong to the same entity/unit in your game and lets you have functions (any kind of code sections) as tabs.
 
@@ -29,9 +31,9 @@ Internal pico-8 map viewer with zoom and location helper.
 
 Pico-8 color table just one click away.
 
-Links to [API cheatsheet](https://neko250.github.io/pico8-api/) and P8Coder GitHub page
+Links to [API cheatsheet](https://neko250.github.io/pico8-api/) and P8Coder GitHub page.
 
-P8Coder watches changes made to sprites or map data of the loaded cartridge and updates its views automatically
+P8Coder watches changes made to sprites or map data of the loaded cartridge and updates its views automatically.
 
 P8Coder project files (p8c) can be opened with P8Coder from Windows Explorer ("Open with..." and associate the file extension by choosing P8Coder.exe).
 
