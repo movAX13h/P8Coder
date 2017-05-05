@@ -43,7 +43,7 @@ If you're looking for other tools for pico-8, check the [awesome-PICO-8](https:/
 P8Coder overwrites all lua code of the cartridge you select! Everything else (gfx/map/sfx/music) remains untouched.
 
 ## Download
-- Binary (v1.0) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
+- Binary (v1.1) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
 
 ## Source code
 - C# .NET4.5, VisualStudio 12 (2013) solution
