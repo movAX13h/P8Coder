@@ -320,7 +320,7 @@ namespace P8Coder
             if (pico8Process == null)
             {
                 ProcessStartInfo info = new ProcessStartInfo();
-                info.Arguments = "-run " + currentProject.CartFilename;
+                info.Arguments = "-run \"" + currentProject.CartFilename + "\"";
                 info.FileName = Settings.Pico8exe;
                 info.UseShellExecute = false;
                 info.RedirectStandardOutput = true;
