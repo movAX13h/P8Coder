@@ -254,7 +254,8 @@ namespace P8Coder
             if (currentProject.CartFilename != cartInput.Text)
             {
                 currentProject.CartFilename = cartInput.Text;
-                currentProject.Cart.OnChangeCallback = new Action<Cartridge>(reloadCartridge);
+                if (currentProject.Cart == null) MessageBox.Show("Failed to load the cartridge!", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else currentProject.Cart.OnChangeCallback = new Action<Cartridge>(reloadCartridge);
             }
             saveBtn.Enabled = true;
         }
