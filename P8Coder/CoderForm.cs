@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using P8Coder.Core;
 using P8Coder.Utils;
-using P8Coder.Controls;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Drawing.Drawing2D;
 
 namespace P8Coder
 {
@@ -32,9 +23,6 @@ namespace P8Coder
 
         private string title = "P8Coder";
         private Dictionary<string, Pico8ApiHelp> pico8help;
-
-        //private Process pico8Process;
-        //private IntPtr pico8Handle;
 
         private SpritesheetForm spritesheetForm;
         private MapForm mapForm;
@@ -257,7 +245,8 @@ namespace P8Coder
             if (currentProject.CartFilename != cartInput.Text)
             {
                 currentProject.CartFilename = cartInput.Text;
-                currentProject.Cart.OnChangeCallback = new Action<Cartridge>(reloadCartridge);
+                if (currentProject.Cart == null) MessageBox.Show("Failed to load the cartridge!", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else currentProject.Cart.OnChangeCallback = new Action<Cartridge>(reloadCartridge);
             }
             saveBtn.Enabled = true;
         }

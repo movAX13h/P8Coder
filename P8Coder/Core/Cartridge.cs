@@ -73,31 +73,31 @@ namespace P8Coder.Core
 
         private void setupFromText(string text)
         {
-            char[] charsToTrim = { '\r', '\n', ' ' };
-
             rawText = text.Replace("\r", "");
-            string[] sections = Regex.Split(rawText, @"__(?:lua|gfx|gff|map|sfx|music)__\n");
 
-            if (sections.Length != 7) throw new Exception("Invalid file format! (1)");
+            string[] lines = rawText.Trim().Split('\n');
 
-            string[] header = sections[0].Trim().Split('\n');
-            if (header.Length != 2) throw new Exception("Invalid file format! (2)");
+            if (!readHeader(lines[0].Trim())) throw new Exception("Invalid file format! (1)");
+            if (!readVersion(lines[1].Trim())) throw new Exception("Invalid file format! (2)");
 
-            if (!readHeader(header[0].Trim())) throw new Exception("Invalid file format! (3)");
-            if (!readVersion(header[1].Trim())) throw new Exception("Invalid file format! (4)");
+            Lua = getSection("__lua__", rawText).Trim();
+            Gfx = getSection("__gfx__", rawText).Replace("\n", "").Trim();
 
-            Lua = sections[1].Trim();
-            Gfx = sections[2].Replace("\n", "").Trim();
+            if (Gfx.Length != 16384)
+                throw new Exception("Invalid file format! (3)");
 
-            if (Gfx.Length != 16384 /*16511*/) throw new Exception("Invalid file format! (5)");
-
-            Gff = sections[3].Trim();
-            Map = sections[4].Replace("\n", "").Trim();
-            Sfx = sections[5].Trim();
-            Music = sections[6].Trim();
+            Map = getSection("__map__", rawText).Replace("\n", "").Trim();
 
             createSprites();
             createMapSprite();
+        }
+
+        private string getSection(string name, string data)
+        {
+            int start = data.IndexOf(name) + name.Length;
+            int end = data.IndexOf("__", start + name.Length);
+
+            return data.Substring(start, end - start).Trim();
         }
 
         private void createSprites()
@@ -189,10 +189,12 @@ namespace P8Coder.Core
         {
             //NOTE: version changes with every release of pico-8
             //      This means that we have no simple check to see if the file is compatible.
-            //if (text != "version 7") return false;
+
+            string[] parts = text.Split(' ');
+            if (parts.Length != 2) return false;
 
             int v = 0;
-            if (!int.TryParse(text.Substring(text.Length - 1, 1), out v)) return false;
+            if (!int.TryParse(parts[1], out v)) return false;
             Version = v;
             return true;
         }
