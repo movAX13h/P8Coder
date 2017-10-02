@@ -55,9 +55,12 @@ P8Coder overwrites all lua code of the cartridge you select! Everything else (gf
 
 ## Change Log
 
-- **1.1** - 2017-10-02
+- **1.2** - 2017-10-02
   - pico-8 launch parameters dialog
   - button to save spritesheet to png
   - new instances of pico-8 instead of re-using
+  
+- **1.1** - 2016-11-01
+  - fix for changed cartridge format
   
 - **1.0** - 2016-05-13: public release
