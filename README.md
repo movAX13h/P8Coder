@@ -31,7 +31,7 @@ Internal pico-8 map viewer with zoom and location helper.
 
 Pico-8 color table, [API cheatsheet](https://neko250.github.io/pico8-api/) and P8Coder GitHub page are just one click away.
 
-Since v1.1 you can configure the way pico-8 launches when running your cartridge:
+Since v1.2 you can configure the way pico-8 launches when running your cartridge:
 
 ![codehints](screenshots/launchparams.png "pico-8 launch parameters")
 
@@ -45,8 +45,8 @@ If you're looking for other tools for pico-8, check the [awesome-PICO-8](https:/
 P8Coder overwrites all lua code of the cartridge you select! Everything else (gfx/map/sfx/music) remains untouched.
 
 ## Download
-- Binary (v1.1) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
-- NOTE: to upgrade vom v1.0, simply replace the old exe with the new one
+- Binary (v1.2) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
+- NOTE: to upgrade vom v1.0 or 1.1, simply replace the old exe with the new one
 
 ## Source code
 - C# .NET4.5, VisualStudio 15 (2017) solution
