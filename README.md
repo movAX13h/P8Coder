@@ -21,7 +21,7 @@ P8Coder has pico-8 lua syntax highlighting and API code hints and can be used en
 
 ![codehints](screenshots/spritesheet.png "spritesheet viewer")
 
-Internal pico-8 spritesheet viewer with zoom and location helper. Since version 1.1 there's a button in the top-right corner to save the spritesheet as png.
+Internal pico-8 spritesheet viewer with zoom and location helper. Since version 1.2 there's a button in the top-right corner to save the spritesheet as png.
 
 ![codehints](screenshots/mapviewer.png "map viewer")
 
