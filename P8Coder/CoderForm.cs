@@ -33,8 +33,8 @@ namespace P8Coder
         private string title = "P8Coder";
         private Dictionary<string, Pico8ApiHelp> pico8help;
 
-        private Process pico8Process;
-        private IntPtr pico8Handle;
+        //private Process pico8Process;
+        //private IntPtr pico8Handle;
 
         private SpritesheetForm spritesheetForm;
         private MapForm mapForm;
@@ -67,20 +67,23 @@ namespace P8Coder
         private void CoderForm_Shown(object sender, EventArgs e)
         {
             Settings = new UserSettings();
-            if (Settings.Pico8exe.Length == 0)
+            if (Settings.Pico8exe.Length == 0 || !File.Exists(Settings.Pico8exe))
             {
-                MessageBox.Show("Please select the pico8.exe so P8Coder can run carts.", "PICO8 binary", MessageBoxButtons.OK);
-
-                if (selectPico8Dialog.ShowDialog() == DialogResult.OK)
-                {
-                    Settings.Pico8exe = selectPico8Dialog.FileName;
-                    Settings.Save();
-                }
+                MessageBox.Show("Please select pico8.exe so P8Coder can run carts.", "pico-8 binary", MessageBoxButtons.OK);
+                showPico8BinarySelectionDialog();                
             }
 
             if (currentProject == null) newProject();
         }
 
+        private void showPico8BinarySelectionDialog()
+        {
+            if (selectPico8Dialog.ShowDialog() == DialogResult.OK)
+            {
+                Settings.Pico8exe = selectPico8Dialog.FileName;
+                Settings.Save();
+            }
+        }
 
         private void readPico8API()
         {
@@ -254,8 +257,7 @@ namespace P8Coder
             if (currentProject.CartFilename != cartInput.Text)
             {
                 currentProject.CartFilename = cartInput.Text;
-                if (currentProject.Cart == null) MessageBox.Show("Failed to load the cartridge!", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else currentProject.Cart.OnChangeCallback = new Action<Cartridge>(reloadCartridge);
+                currentProject.Cart.OnChangeCallback = new Action<Cartridge>(reloadCartridge);
             }
             saveBtn.Enabled = true;
         }
@@ -287,15 +289,15 @@ namespace P8Coder
             if (String.IsNullOrWhiteSpace(currentProject.CartFilename))
             {
                 Clipboard.SetText(currentProject.Code);
-                MessageBox.Show("No cartridge selected. Code copied to clipboard instead.", "You know...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No cartridge selected. Code copied to clipboard instead.", "Fallback", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if (currentProject.WriteCart())
             {
-                if (Settings.Pico8exe.Length == 0)
+                if (Settings.Pico8exe.Length == 0 || !File.Exists(Settings.Pico8exe))
                 {
-                    MessageBox.Show("Can not run without pico8.exe!\nPlease select it at the next programm launch.", "Sorry, but ...", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    showPico8BinarySelectionDialog();
                     return;
                 }
 
@@ -317,69 +319,29 @@ namespace P8Coder
         */
         private void runCart()
         {
-            if (pico8Process == null)
-            {
-                ProcessStartInfo info = new ProcessStartInfo();
-                info.Arguments = "-run \"" + currentProject.CartFilename + "\"";
-                info.FileName = Settings.Pico8exe;
-                info.UseShellExecute = false;
-                info.RedirectStandardOutput = true;
-                info.RedirectStandardError = true;
-                //info.RedirectStandardInput = true;
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.Arguments = "-run " + currentProject.CartFilename;
 
-                pico8Process = new Process();
-                pico8Process.StartInfo = info;
-                pico8Process.EnableRaisingEvents = true;
+            info.Arguments += " -width " + Settings.Width.ToString() +
+                              " -height " + Settings.Height.ToString() +
+                              " -windowed " + (Settings.Fullscreen ? "0" : "1") + 
+                              " -sound " + Settings.SoundVolume.ToString() +
+                              " -music " + Settings.MusicVolume.ToString() + 
+                              " -joystick " + Settings.Joystick.ToString() + 
+                              " -pixel_perfect " + (Settings.PixelPerfect ? "1" : "0") + 
+                              " -screenshot_scale " + Settings.ScreenshotScale.ToString() +
+                              " -gif_scale " + Settings.GIFScale.ToString() + 
+                              " -gif_len " + Settings.GIFDuration.ToString() +
+                              " -gui_theme " + (Settings.DarkEditor ? "1" : "0") +
+                              " -frameless " + (Settings.Borderless ? "1" : "0") + 
+                              " -show_fps " + (Settings.ShowFPS ? "1" : "0");
 
-                pico8Process.OutputDataReceived += pico8Process_DataReceived;
-                pico8Process.ErrorDataReceived += pico8Process_DataReceived; 
-                pico8Process.Exited += pico8Process_Exited;
-
-                pico8Process.Start();
-                pico8Process.WaitForInputIdle();
-
-                pico8Process.BeginOutputReadLine();
-                pico8Process.BeginErrorReadLine();
-
-                pico8Handle = pico8Process.MainWindowHandle;
-                
-            }
-            else
-            {
-                const uint WM_SYSKEYDOWN = 0x0104; // https://msdn.microsoft.com/en-us/library/ms646286(v=vs.85).aspx
-                const uint WM_KEYDOWN = 0x100;
-                const uint WM_KEYUP = 0x101;
-                const uint WM_SYSCOMMAND = 0x018;
-
-                const int VK_ESCAPE = 0x1B;
-
-                SetForegroundWindow(pico8Handle);
-                //IntPtr result = SendMessage(pico8Handle, WM_KEYDOWN, ((IntPtr)Keys.A), (IntPtr)0);
-                PostMessage(pico8Handle, WM_KEYDOWN, ((IntPtr)VK_ESCAPE), (IntPtr)0);
-                //PostMessage(pico8Handle, WM_KEYUP, ((IntPtr)VK_ESCAPE), (IntPtr)0);
-                //SendKeys.SendWait("{ESC}");
-                //SendKeys.Flush();
-            }
-        }
-
-        void pico8Process_DataReceived(object sender, DataReceivedEventArgs e)
-        {
-            Debug.WriteLine(e.Data);
-            if (e.Data == null) return;
-            terminalListBox.InvokeIfRequired(() =>
-            {
-                terminalListBox.Items.Add("pico-8 says: " + e.Data);
-            });
-        }
-
-        void pico8Process_Exited(object sender, EventArgs e)
-        {
-            pico8Process.Dispose();
-            pico8Process = null;
-            terminalListBox.InvokeIfRequired(() =>
-            {
-                terminalListBox.Items.Add("pico-8 closed ---");
-            });
+            info.FileName = Settings.Pico8exe;
+            info.UseShellExecute = false;
+            
+            Process pico8Process = new Process();
+            pico8Process.StartInfo = info;
+            pico8Process.Start();
         }
         #endregion
 
@@ -510,7 +472,6 @@ namespace P8Coder
             currentProject.Changed = true;
             Entity entity = (Entity)entitiesList.SelectedItem;
             entity.Enabled = e.NewValue == CheckState.Checked;
-
         }
 
         private void addEntityBtn_Click(object sender, EventArgs e)
@@ -711,8 +672,11 @@ namespace P8Coder
             System.Diagnostics.Process.Start("https://github.com/movAX13h/P8Coder");
         }
 
-
-
+        private void pico8LaunchSettingsBtn_Click(object sender, EventArgs e)
+        {
+            LaunchSettingsForm f = new LaunchSettingsForm(Settings);
+            f.ShowDialog(this);
+        }
 
     }
 }

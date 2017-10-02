@@ -67,6 +67,7 @@
             this.colorsButton = new System.Windows.Forms.Button();
             this.apiButton = new System.Windows.Forms.Button();
             this.githubButton = new System.Windows.Forms.Button();
+            this.pico8LaunchSettingsBtn = new System.Windows.Forms.Button();
             this.colorsPicture = new System.Windows.Forms.PictureBox();
             this.luaCodeEditor = new FastColoredTextBoxNS.FastColoredTextBox();
             this.entitiesContextMenu.SuspendLayout();
@@ -165,7 +166,7 @@
             this.entitiesList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.entitiesList.FormattingEnabled = true;
-            this.entitiesList.Location = new System.Drawing.Point(13, 332);
+            this.entitiesList.Location = new System.Drawing.Point(13, 362);
             this.entitiesList.Name = "entitiesList";
             this.entitiesList.Size = new System.Drawing.Size(108, 199);
             this.entitiesList.TabIndex = 5;
@@ -178,12 +179,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.codeTabs.Location = new System.Drawing.Point(200, 13);
             this.codeTabs.Name = "codeTabs";
-            this.codeTabs.Size = new System.Drawing.Size(506, 29);
+            this.codeTabs.Size = new System.Drawing.Size(464, 29);
             this.codeTabs.TabIndex = 7;
             // 
             // addEntityBtn
             // 
-            this.addEntityBtn.Location = new System.Drawing.Point(126, 331);
+            this.addEntityBtn.Location = new System.Drawing.Point(126, 362);
             this.addEntityBtn.Name = "addEntityBtn";
             this.addEntityBtn.Size = new System.Drawing.Size(45, 23);
             this.addEntityBtn.TabIndex = 8;
@@ -193,7 +194,7 @@
             // 
             // delEntityBtn
             // 
-            this.delEntityBtn.Location = new System.Drawing.Point(126, 360);
+            this.delEntityBtn.Location = new System.Drawing.Point(126, 391);
             this.delEntityBtn.Name = "delEntityBtn";
             this.delEntityBtn.Size = new System.Drawing.Size(45, 23);
             this.delEntityBtn.TabIndex = 9;
@@ -230,7 +231,7 @@
             // 
             // editEntityBtn
             // 
-            this.editEntityBtn.Location = new System.Drawing.Point(126, 389);
+            this.editEntityBtn.Location = new System.Drawing.Point(126, 420);
             this.editEntityBtn.Name = "editEntityBtn";
             this.editEntityBtn.Size = new System.Drawing.Size(45, 23);
             this.editEntityBtn.TabIndex = 11;
@@ -241,7 +242,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 316);
+            this.label3.Location = new System.Drawing.Point(10, 346);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 12;
@@ -275,16 +276,16 @@
             this.cartInput.Location = new System.Drawing.Point(12, 280);
             this.cartInput.Name = "cartInput";
             this.cartInput.ReadOnly = true;
-            this.cartInput.Size = new System.Drawing.Size(78, 20);
+            this.cartInput.Size = new System.Drawing.Size(159, 20);
             this.cartInput.TabIndex = 14;
             this.cartInput.MouseHover += new System.EventHandler(this.cartInput_MouseHover);
             // 
             // cartSelBtn
             // 
             this.cartSelBtn.Image = global::P8Coder.Properties.Resources.pico8;
-            this.cartSelBtn.Location = new System.Drawing.Point(95, 278);
+            this.cartSelBtn.Location = new System.Drawing.Point(69, 306);
             this.cartSelBtn.Name = "cartSelBtn";
-            this.cartSelBtn.Size = new System.Drawing.Size(24, 24);
+            this.cartSelBtn.Size = new System.Drawing.Size(30, 30);
             this.cartSelBtn.TabIndex = 16;
             this.toolTip.SetToolTip(this.cartSelBtn, "Select Cartridge (.p8)");
             this.cartSelBtn.UseVisualStyleBackColor = true;
@@ -300,7 +301,7 @@
             // entityUpBtn
             // 
             this.entityUpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entityUpBtn.Location = new System.Drawing.Point(126, 423);
+            this.entityUpBtn.Location = new System.Drawing.Point(126, 454);
             this.entityUpBtn.Name = "entityUpBtn";
             this.entityUpBtn.Size = new System.Drawing.Size(45, 40);
             this.entityUpBtn.TabIndex = 17;
@@ -311,7 +312,7 @@
             // entityDownBtn
             // 
             this.entityDownBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entityDownBtn.Location = new System.Drawing.Point(126, 469);
+            this.entityDownBtn.Location = new System.Drawing.Point(126, 500);
             this.entityDownBtn.Name = "entityDownBtn";
             this.entityDownBtn.Size = new System.Drawing.Size(45, 40);
             this.entityDownBtn.TabIndex = 18;
@@ -324,7 +325,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(123, 517);
+            this.label5.Location = new System.Drawing.Point(123, 559);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 19;
@@ -335,7 +336,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(712, 20);
+            this.label6.Location = new System.Drawing.Point(670, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 20;
@@ -350,7 +351,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.terminalListBox);
-            this.panel1.Location = new System.Drawing.Point(177, 451);
+            this.panel1.Location = new System.Drawing.Point(177, 493);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(551, 49);
             this.panel1.TabIndex = 21;
@@ -370,9 +371,9 @@
             // spritesheetBtn
             // 
             this.spritesheetBtn.Image = global::P8Coder.Properties.Resources.sprite;
-            this.spritesheetBtn.Location = new System.Drawing.Point(121, 278);
+            this.spritesheetBtn.Location = new System.Drawing.Point(105, 306);
             this.spritesheetBtn.Name = "spritesheetBtn";
-            this.spritesheetBtn.Size = new System.Drawing.Size(24, 24);
+            this.spritesheetBtn.Size = new System.Drawing.Size(30, 30);
             this.spritesheetBtn.TabIndex = 16;
             this.toolTip.SetToolTip(this.spritesheetBtn, "Show Spritesheet");
             this.spritesheetBtn.UseVisualStyleBackColor = true;
@@ -381,9 +382,9 @@
             // mapButton
             // 
             this.mapButton.Image = global::P8Coder.Properties.Resources.map;
-            this.mapButton.Location = new System.Drawing.Point(147, 278);
+            this.mapButton.Location = new System.Drawing.Point(141, 306);
             this.mapButton.Name = "mapButton";
-            this.mapButton.Size = new System.Drawing.Size(24, 24);
+            this.mapButton.Size = new System.Drawing.Size(30, 30);
             this.mapButton.TabIndex = 22;
             this.toolTip.SetToolTip(this.mapButton, "Show Map");
             this.mapButton.UseVisualStyleBackColor = true;
@@ -425,6 +426,17 @@
             this.githubButton.UseVisualStyleBackColor = true;
             this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
             // 
+            // pico8LaunchSettingsBtn
+            // 
+            this.pico8LaunchSettingsBtn.Image = global::P8Coder.Properties.Resources.pico8params;
+            this.pico8LaunchSettingsBtn.Location = new System.Drawing.Point(745, 14);
+            this.pico8LaunchSettingsBtn.Name = "pico8LaunchSettingsBtn";
+            this.pico8LaunchSettingsBtn.Size = new System.Drawing.Size(24, 24);
+            this.pico8LaunchSettingsBtn.TabIndex = 27;
+            this.toolTip.SetToolTip(this.pico8LaunchSettingsBtn, "pico-8 launch parameters");
+            this.pico8LaunchSettingsBtn.UseVisualStyleBackColor = true;
+            this.pico8LaunchSettingsBtn.Click += new System.EventHandler(this.pico8LaunchSettingsBtn_Click);
+            // 
             // colorsPicture
             // 
             this.colorsPicture.Image = global::P8Coder.Properties.Resources.colors;
@@ -464,6 +476,7 @@
             this.luaCodeEditor.CommentPrefix = "--";
             this.luaCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.luaCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.luaCodeEditor.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.luaCodeEditor.IsReplaceMode = false;
             this.luaCodeEditor.Language = FastColoredTextBoxNS.Language.Lua;
             this.luaCodeEditor.LeftBracket = '(';
@@ -477,7 +490,7 @@
             this.luaCodeEditor.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.luaCodeEditor.ServiceColors = null;
             this.luaCodeEditor.ServiceLinesColor = System.Drawing.Color.SkyBlue;
-            this.luaCodeEditor.Size = new System.Drawing.Size(673, 488);
+            this.luaCodeEditor.Size = new System.Drawing.Size(673, 530);
             this.luaCodeEditor.TabIndex = 0;
             this.luaCodeEditor.TabLength = 2;
             this.luaCodeEditor.TextAreaBorderColor = System.Drawing.Color.Silver;
@@ -490,10 +503,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(862, 544);
+            this.ClientSize = new System.Drawing.Size(862, 586);
             this.Controls.Add(this.colorsPicture);
-            this.Controls.Add(this.githubButton);
             this.Controls.Add(this.colorsButton);
+            this.Controls.Add(this.githubButton);
             this.Controls.Add(this.mapButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.entityDownBtn);
@@ -520,6 +533,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.luaCodeEditor);
             this.Controls.Add(this.apiButton);
+            this.Controls.Add(this.pico8LaunchSettingsBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(700, 583);
@@ -580,6 +594,7 @@
         private System.Windows.Forms.PictureBox colorsPicture;
         private System.Windows.Forms.Button apiButton;
         private System.Windows.Forms.Button githubButton;
+        private System.Windows.Forms.Button pico8LaunchSettingsBtn;
     }
 }
 

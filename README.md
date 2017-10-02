@@ -21,7 +21,7 @@ P8Coder has pico-8 lua syntax highlighting and API code hints and can be used en
 
 ![codehints](screenshots/spritesheet.png "spritesheet viewer")
 
-Internal pico-8 spritesheet viewer with zoom and location helper.
+Internal pico-8 spritesheet viewer with zoom and location helper. Since version 1.1 there's a button in the top-right corner to save the spritesheet as png.
 
 ![codehints](screenshots/mapviewer.png "map viewer")
 
@@ -29,9 +29,11 @@ Internal pico-8 map viewer with zoom and location helper.
 
 ![codehints](screenshots/colors.png "pico-8 colors")
 
-Pico-8 color table just one click away.
+Pico-8 color table, [API cheatsheet](https://neko250.github.io/pico8-api/) and P8Coder GitHub page are just one click away.
 
-Links to [API cheatsheet](https://neko250.github.io/pico8-api/) and P8Coder GitHub page.
+Since v1.1 you can configure the way pico-8 launches when running your cartridge:
+
+![codehints](screenshots/launchparams.png "pico-8 launch parameters")
 
 P8Coder watches changes made to sprites or map data of the loaded cartridge and updates its views automatically.
 
@@ -44,9 +46,18 @@ P8Coder overwrites all lua code of the cartridge you select! Everything else (gf
 
 ## Download
 - Binary (v1.1) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
+- NOTE: to upgrade vom v1.0, simply replace the old exe with the new one
 
 ## Source code
-- C# .NET4.5, VisualStudio 12 (2013) solution
+- C# .NET4.5, VisualStudio 15 (2017) solution
 - uses https://github.com/PavelTorgashov/FastColoredTextBox
 - should be easy :)
 
+## Change Log
+
+- **1.1** - 2017-10-02
+  - pico-8 launch parameters dialog
+  - button to save spritesheet to png
+  - new instances of pico-8 instead of re-using
+  
+- **1.0** - 2016-05-13: public release

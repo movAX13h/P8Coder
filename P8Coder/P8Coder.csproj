@@ -143,6 +143,12 @@
     <Compile Include="FunctionForm.Designer.cs">
       <DependentUpon>FunctionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LaunchSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaunchSettingsForm.Designer.cs">
+      <DependentUpon>LaunchSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Core\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -185,6 +191,9 @@
     <EmbeddedResource Include="FunctionForm.resx">
       <DependentUpon>FunctionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LaunchSettingsForm.resx">
+      <DependentUpon>LaunchSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -215,6 +224,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="p8coder.ico" />
+    <None Include="Resources\Save_6530.png" />
+    <None Include="Resources\pico8params.png" />
     <None Include="Resources\pico8-api.png" />
     <None Include="Resources\github.png" />
     <None Include="Resources\colors1.png" />

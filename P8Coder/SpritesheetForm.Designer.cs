@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpritesheetForm));
             this.selectionLabel = new System.Windows.Forms.Label();
             this.canvasPanel = new System.Windows.Forms.Panel();
@@ -37,6 +38,8 @@
             this.zoom2Item = new System.Windows.Forms.ToolStripMenuItem();
             this.zoom3Item = new System.Windows.Forms.ToolStripMenuItem();
             this.zoom4Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,11 +123,24 @@
             this.zoom4Item.Size = new System.Drawing.Size(85, 22);
             this.zoom4Item.Text = "4x";
             // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveBtn.Image = global::P8Coder.Properties.Resources.Save_6530;
+            this.saveBtn.Location = new System.Drawing.Point(248, 4);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(28, 28);
+            this.saveBtn.TabIndex = 25;
+            this.toolTip1.SetToolTip(this.saveBtn, "Save as Bitmap");
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
             // SpritesheetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(289, 336);
+            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.topCheckbox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.canvasPanel);
@@ -158,5 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem zoom2Item;
         private System.Windows.Forms.ToolStripMenuItem zoom3Item;
         private System.Windows.Forms.ToolStripMenuItem zoom4Item;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -136,5 +136,19 @@ namespace P8Coder
             int id = zoomStatusDropDown.DropDownItems.IndexOf(e.ClickedItem);
             setZoom(id + 2);
         }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "png files (*.png)|*.png";
+            saveFileDialog1.AddExtension = true;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                coderForm.CurrentProject.Cart.SpriteSheet.Save(saveFileDialog1.FileName);
+            }
+        }
     }
 }
