@@ -15,21 +15,23 @@ It stores projects as p8c (P8Coder) files containing the code along with the pat
 
 You can use upper-case characters in P8Coder for better readability. Everything will be converted to lower-case on build.
 
+P8Coder has pico-8 lua syntax highlighting and API code hints and can be used entirely with keyboard (F1/F2 to switch entity, ALT+F1/F2 to switch tab, see tooltips for more):
+
 ![codehints](screenshots/codehints.png "codehints")
 
-P8Coder has pico-8 lua syntax highlighting and API code hints and can be used entirely with keyboard (F1/F2 to switch entity, ALT+F1/F2 to switch tab, see tooltips for more).
+Internal pico-8 spritesheet viewer with zoom and location helper:
 
 ![codehints](screenshots/spritesheet.png "spritesheet viewer")
 
-Internal pico-8 spritesheet viewer with zoom and location helper. Since version 1.2 there's a button in the top-right corner to save the spritesheet as png.
+Since version 1.2 there's a button in the top-right corner to save the spritesheet as png.
+
+Internal pico-8 map viewer with zoom and location helper:
 
 ![codehints](screenshots/mapviewer.png "map viewer")
 
-Internal pico-8 map viewer with zoom and location helper.
+Pico-8 color table, [API cheatsheet](https://neko250.github.io/pico8-api/) and P8Coder GitHub page are just one click away:
 
 ![codehints](screenshots/colors.png "pico-8 colors")
-
-Pico-8 color table, [API cheatsheet](https://neko250.github.io/pico8-api/) and P8Coder GitHub page are just one click away.
 
 Since v1.2 you can configure the way pico-8 launches when running your cartridge:
 
@@ -46,7 +48,7 @@ P8Coder overwrites all lua code of the cartridge you select! Everything else (gf
 
 ## Download
 - Binary (v1.2) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
-- NOTE: to upgrade vom v1.0 or 1.1, simply replace the old exe with the new one
+- NOTE: to upgrade from v1.0 or 1.1, simply replace the old exe with the new one
 
 ## Source code
 - C# .NET4.5, VisualStudio 15 (2017) solution
