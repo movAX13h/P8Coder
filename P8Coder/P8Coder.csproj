@@ -224,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="p8coder.ico" />
+    <None Include="Resources\theme.png" />
     <None Include="Resources\Save_6530.png" />
     <None Include="Resources\pico8params.png" />
     <None Include="Resources\pico8-api.png" />

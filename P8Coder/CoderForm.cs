@@ -4,11 +4,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
+using System.Threading;
 using P8Coder.Core;
 using P8Coder.Utils;
-using System.Runtime.InteropServices;
-using System.Threading;
 
 namespace P8Coder
 {
@@ -27,6 +25,8 @@ namespace P8Coder
         private SpritesheetForm spritesheetForm;
         private MapForm mapForm;
 
+        private bool darkTheme = false;
+
         struct Pico8ApiHelp
         {
             public string Name;
@@ -34,22 +34,36 @@ namespace P8Coder
             public string Description;
         }
 
-        #region DLL imports
-        [DllImport("User32.dll")]
-        static extern int SetForegroundWindow(IntPtr point);
-
-        //[DllImport("user32.dll")]
-        //public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-        #endregion
-
         public CoderForm()
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
             readPico8API();
+
+            darkSyntaxColors(false);
+        }
+
+        private void darkSyntaxColors(bool state)
+        {
+            darkTheme = state;
+            if (state)
+            {
+                luaCodeEditor.BackColor = Color.FromArgb(255, 30, 30, 30);
+                luaCodeEditor.ForeColor = Color.White;
+                luaCodeEditor.LineNumberColor = Color.FromArgb(255, 43, 145, 175);
+                luaCodeEditor.IndentBackColor = Color.FromArgb(255, 30, 30, 30);
+                luaCodeEditor.TextAreaBorder = FastColoredTextBoxNS.TextAreaBorderType.Single;
+                luaCodeEditor.TextAreaBorderColor = Color.FromArgb(255, 63, 63, 70);
+            }
+            else
+            {
+                luaCodeEditor.BackColor = Color.White;
+                luaCodeEditor.ForeColor = Color.Black;
+                luaCodeEditor.LineNumberColor = Color.Teal;
+                luaCodeEditor.IndentBackColor = Color.WhiteSmoke;
+                luaCodeEditor.TextAreaBorder = FastColoredTextBoxNS.TextAreaBorderType.Single;
+                luaCodeEditor.TextAreaBorderColor = Color.Silver;
+            }
         }
 
         private void CoderForm_Shown(object sender, EventArgs e)
@@ -667,5 +681,9 @@ namespace P8Coder
             f.ShowDialog(this);
         }
 
+        private void themeSwitchBtn_Click(object sender, EventArgs e)
+        {
+            darkSyntaxColors(!darkTheme);
+        }
     }
 }

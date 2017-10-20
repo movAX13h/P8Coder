@@ -5,7 +5,7 @@ P8Coder is a handy little tool that replaces the lua code in pico-8 cartridges (
 
 It allows to group functions (any code actually) that belong to the same entity/unit in your game and lets you have functions (any kind of code sections) as tabs.
 
-![codehints](screenshots/p8coder.png "P8Coder")
+![codehints](screenshots/p8coderdark.png "P8Coder dark editor mode")
 
 When writing to the cartridge it concatenates all code to one large lua code block as you would have when writing the cart directly in the p8 file or in pico-8.
 
@@ -47,8 +47,8 @@ If you're looking for other tools for pico-8, check the [awesome-PICO-8](https:/
 P8Coder overwrites all lua code of the cartridge you select! Everything else (gfx/map/sfx/music) remains untouched.
 
 ## Download
-- Binary (v1.2) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
-- NOTE: to upgrade from v1.0 or 1.1, simply replace the old exe with the new one
+- Binary (v1.3) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
+- Upgrade: replace the old exe with the new one
 
 ## Source code
 - C# .NET4.5, VisualStudio 15 (2017) solution
@@ -56,6 +56,10 @@ P8Coder overwrites all lua code of the cartridge you select! Everything else (gf
 - should be easy :)
 
 ## Change Log
+
+- **1.3** - 2017-10-20
+  - minor bugfixes
+  - dark editor mode and toggle button
 
 - **1.2** - 2017-10-02
   - pico-8 launch parameters dialog

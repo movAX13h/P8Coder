@@ -68,6 +68,7 @@
             this.apiButton = new System.Windows.Forms.Button();
             this.githubButton = new System.Windows.Forms.Button();
             this.pico8LaunchSettingsBtn = new System.Windows.Forms.Button();
+            this.themeSwitchBtn = new System.Windows.Forms.Button();
             this.colorsPicture = new System.Windows.Forms.PictureBox();
             this.luaCodeEditor = new FastColoredTextBoxNS.FastColoredTextBox();
             this.entitiesContextMenu.SuspendLayout();
@@ -179,7 +180,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.codeTabs.Location = new System.Drawing.Point(200, 13);
             this.codeTabs.Name = "codeTabs";
-            this.codeTabs.Size = new System.Drawing.Size(464, 29);
+            this.codeTabs.Size = new System.Drawing.Size(440, 29);
             this.codeTabs.TabIndex = 7;
             // 
             // addEntityBtn
@@ -336,7 +337,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(670, 20);
+            this.label6.Location = new System.Drawing.Point(658, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 20;
@@ -394,7 +395,7 @@
             // 
             this.colorsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.colorsButton.Image = global::P8Coder.Properties.Resources.colors1;
-            this.colorsButton.Location = new System.Drawing.Point(772, 14);
+            this.colorsButton.Location = new System.Drawing.Point(718, 14);
             this.colorsButton.Name = "colorsButton";
             this.colorsButton.Size = new System.Drawing.Size(24, 24);
             this.colorsButton.TabIndex = 23;
@@ -438,6 +439,18 @@
             this.pico8LaunchSettingsBtn.UseVisualStyleBackColor = true;
             this.pico8LaunchSettingsBtn.Click += new System.EventHandler(this.pico8LaunchSettingsBtn_Click);
             // 
+            // themeSwitchBtn
+            // 
+            this.themeSwitchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.themeSwitchBtn.Image = global::P8Coder.Properties.Resources.theme;
+            this.themeSwitchBtn.Location = new System.Drawing.Point(772, 14);
+            this.themeSwitchBtn.Name = "themeSwitchBtn";
+            this.themeSwitchBtn.Size = new System.Drawing.Size(24, 24);
+            this.themeSwitchBtn.TabIndex = 27;
+            this.toolTip.SetToolTip(this.themeSwitchBtn, "toggle dark/bright code editor");
+            this.themeSwitchBtn.UseVisualStyleBackColor = true;
+            this.themeSwitchBtn.Click += new System.EventHandler(this.themeSwitchBtn_Click);
+            // 
             // colorsPicture
             // 
             this.colorsPicture.Image = global::P8Coder.Properties.Resources.colors;
@@ -467,7 +480,7 @@
         '\'',
         '\''};
             this.luaCodeEditor.AutoIndentChars = false;
-            this.luaCodeEditor.AutoIndentCharsPatterns = "\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>.+)\n";
+            this.luaCodeEditor.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>.+)\r\n";
             this.luaCodeEditor.AutoIndentExistingLines = false;
             this.luaCodeEditor.AutoScrollMinSize = new System.Drawing.Size(35, 14);
             this.luaCodeEditor.BackBrush = null;
@@ -477,6 +490,7 @@
             this.luaCodeEditor.CommentPrefix = "--";
             this.luaCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.luaCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.luaCodeEditor.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.luaCodeEditor.IsReplaceMode = false;
             this.luaCodeEditor.Language = FastColoredTextBoxNS.Language.Lua;
             this.luaCodeEditor.LeftBracket = '(';
@@ -533,6 +547,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.luaCodeEditor);
             this.Controls.Add(this.apiButton);
+            this.Controls.Add(this.themeSwitchBtn);
             this.Controls.Add(this.pico8LaunchSettingsBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -595,6 +610,7 @@
         private System.Windows.Forms.Button apiButton;
         private System.Windows.Forms.Button githubButton;
         private System.Windows.Forms.Button pico8LaunchSettingsBtn;
+        private System.Windows.Forms.Button themeSwitchBtn;
     }
 }
 
