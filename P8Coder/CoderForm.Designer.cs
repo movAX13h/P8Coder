@@ -168,7 +168,7 @@
             this.entitiesList.FormattingEnabled = true;
             this.entitiesList.Location = new System.Drawing.Point(13, 362);
             this.entitiesList.Name = "entitiesList";
-            this.entitiesList.Size = new System.Drawing.Size(108, 199);
+            this.entitiesList.Size = new System.Drawing.Size(108, 214);
             this.entitiesList.TabIndex = 5;
             this.entitiesList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.entitiesList_ItemCheck);
             this.entitiesList.SelectedIndexChanged += new System.EventHandler(this.entitiesList_SelectedIndexChanged);
@@ -428,6 +428,7 @@
             // 
             // pico8LaunchSettingsBtn
             // 
+            this.pico8LaunchSettingsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pico8LaunchSettingsBtn.Image = global::P8Coder.Properties.Resources.pico8params;
             this.pico8LaunchSettingsBtn.Location = new System.Drawing.Point(745, 14);
             this.pico8LaunchSettingsBtn.Name = "pico8LaunchSettingsBtn";
@@ -476,7 +477,6 @@
             this.luaCodeEditor.CommentPrefix = "--";
             this.luaCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.luaCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.luaCodeEditor.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.luaCodeEditor.IsReplaceMode = false;
             this.luaCodeEditor.Language = FastColoredTextBoxNS.Language.Lua;
             this.luaCodeEditor.LeftBracket = '(';
@@ -536,7 +536,7 @@
             this.Controls.Add(this.pico8LaunchSettingsBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(700, 583);
+            this.MinimumSize = new System.Drawing.Size(700, 620);
             this.Name = "CoderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "P8 Coder";
