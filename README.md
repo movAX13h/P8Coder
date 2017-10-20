@@ -5,7 +5,7 @@ P8Coder is a handy little tool that replaces the lua code in pico-8 cartridges (
 
 It allows to group functions (any code actually) that belong to the same entity/unit in your game and lets you have functions (any kind of code sections) as tabs.
 
-![codehints](screenshots/p8coderdark.png "P8Coder dark editor mode")
+![P8Coder dark editor mode](screenshots/p8coderdark.png "P8Coder dark editor mode")
 
 When writing to the cartridge it concatenates all code to one large lua code block as you would have when writing the cart directly in the p8 file or in pico-8.
 
@@ -21,21 +21,21 @@ P8Coder has pico-8 lua syntax highlighting and API code hints and can be used en
 
 Internal pico-8 spritesheet viewer with zoom and location helper:
 
-![codehints](screenshots/spritesheet.png "spritesheet viewer")
+![spritesheet viewer](screenshots/spritesheet.png "spritesheet viewer")
 
 Since version 1.2 there's a button in the top-right corner to save the spritesheet as png.
 
 Internal pico-8 map viewer with zoom and location helper:
 
-![codehints](screenshots/mapviewer.png "map viewer")
+![map viewer](screenshots/mapviewer.png "map viewer")
 
 Pico-8 color table, [API cheatsheet](https://neko250.github.io/pico8-api/) and P8Coder GitHub page are just one click away:
 
-![codehints](screenshots/colors.png "pico-8 colors")
+![pico-8 colors](screenshots/colors.png "pico-8 colors")
 
 Since v1.2 you can configure the way pico-8 launches when running your cartridge:
 
-![codehints](screenshots/launchparams.png "pico-8 launch parameters")
+![pico-8 launch parameters](screenshots/launchparams.png "pico-8 launch parameters")
 
 P8Coder watches changes made to sprites or map data of the loaded cartridge and updates its views automatically.
 
