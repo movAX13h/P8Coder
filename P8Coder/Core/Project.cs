@@ -29,14 +29,14 @@ namespace P8Coder.Core
                 if (value != string.Empty)
                 {
                     Cart = new Cartridge(value);
-                    //try
+                    try
                     {
                         Cart.Load();
                     }
-                    //catch(Exception e)
+                    catch(Exception e)
                     {
-                      //  Debug.WriteLine(e.Message);
-                      //  Cart = null;
+                        //Debug.WriteLine(e.Message);
+                        Cart = null;
                     }
                 }
             }
