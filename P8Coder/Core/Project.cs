@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace P8Coder.Core
@@ -32,14 +29,14 @@ namespace P8Coder.Core
                 if (value != string.Empty)
                 {
                     Cart = new Cartridge(value);
-                    try
+                    //try
                     {
                         Cart.Load();
                     }
-                    catch(Exception e)
+                    //catch(Exception e)
                     {
-                        Debug.WriteLine(e.Message);
-                        Cart = null;
+                      //  Debug.WriteLine(e.Message);
+                      //  Cart = null;
                     }
                 }
             }
@@ -134,15 +131,20 @@ namespace P8Coder.Core
             if (String.IsNullOrWhiteSpace(CartFilename) ||
                 !File.Exists(CartFilename)) return false;
 
-            string p8 = File.ReadAllText(CartFilename);
+            string rawText = File.ReadAllText(CartFilename);
 
-            int a = p8.IndexOf("__lua__") + 8;
-            int b = p8.IndexOf("__gfx__");
-            string start = p8.Substring(0, a);
-            string end = p8.Substring(b);
+            string[] sections = Regex.Split(rawText, "(__(?:lua|gfx|gff|map|sfx|music)__)");
 
-            string newP8 = start + assembleCode() + end;
-            File.WriteAllText(CartFilename, newP8);
+            for (int i = 1; i < sections.Length; i += 2)
+            {
+                if (sections[i] == "__lua__")
+                {
+                    sections[i + 1] = "\n" + assembleCode();
+                }
+            }
+
+            rawText = string.Join("", sections);
+            File.WriteAllText(CartFilename, rawText);
 
             return true;
         }

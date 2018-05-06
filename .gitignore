@@ -5,6 +5,7 @@
 projects/
 
 # User-specific files
+Thumbs.db
 *.suo
 *.user
 *.userosscache

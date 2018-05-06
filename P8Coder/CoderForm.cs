@@ -256,12 +256,14 @@ namespace P8Coder
             currentProject.Changed = true;
             currentProject.Name = projectNameInput.Text;
             currentProject.Author = authorInput.Text;
+
             if (currentProject.CartFilename != cartInput.Text)
             {
                 currentProject.CartFilename = cartInput.Text;
                 if (currentProject.Cart == null) MessageBox.Show("Failed to load the cartridge!", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else currentProject.Cart.OnChangeCallback = new Action<Cartridge>(reloadCartridge);
             }
+
             saveBtn.Enabled = true;
         }
 
@@ -667,12 +669,18 @@ namespace P8Coder
 
         private void apiButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://neko250.github.io/pico8-api/");            
+            Process.Start("https://neko250.github.io/pico8-api/");            
         }
 
         private void githubButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/movAX13h/P8Coder");
+            Process.Start("https://github.com/movAX13h/P8Coder");
+        }
+
+        private void cartInput_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (cartInput.Text != "" && File.Exists(cartInput.Text))
+                Process.Start("explorer.exe", "/select, " + cartInput.Text);
         }
 
         private void pico8LaunchSettingsBtn_Click(object sender, EventArgs e)
@@ -685,5 +693,6 @@ namespace P8Coder
         {
             darkSyntaxColors(!darkTheme);
         }
+
     }
 }

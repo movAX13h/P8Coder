@@ -180,7 +180,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.codeTabs.Location = new System.Drawing.Point(200, 13);
             this.codeTabs.Name = "codeTabs";
-            this.codeTabs.Size = new System.Drawing.Size(440, 29);
+            this.codeTabs.Size = new System.Drawing.Size(602, 29);
             this.codeTabs.TabIndex = 7;
             // 
             // addEntityBtn
@@ -279,6 +279,7 @@
             this.cartInput.ReadOnly = true;
             this.cartInput.Size = new System.Drawing.Size(159, 20);
             this.cartInput.TabIndex = 14;
+            this.cartInput.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cartInput_MouseDoubleClick);
             this.cartInput.MouseHover += new System.EventHandler(this.cartInput_MouseHover);
             // 
             // cartSelBtn
@@ -337,7 +338,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(658, 23);
+            this.label6.Location = new System.Drawing.Point(820, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 20;
@@ -354,7 +355,7 @@
             this.panel1.Controls.Add(this.terminalListBox);
             this.panel1.Location = new System.Drawing.Point(177, 493);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(551, 49);
+            this.panel1.Size = new System.Drawing.Size(713, 49);
             this.panel1.TabIndex = 21;
             this.panel1.Visible = false;
             // 
@@ -366,7 +367,7 @@
             this.terminalListBox.FormattingEnabled = true;
             this.terminalListBox.Location = new System.Drawing.Point(3, 3);
             this.terminalListBox.Name = "terminalListBox";
-            this.terminalListBox.Size = new System.Drawing.Size(545, 43);
+            this.terminalListBox.Size = new System.Drawing.Size(707, 43);
             this.terminalListBox.TabIndex = 1;
             // 
             // spritesheetBtn
@@ -395,7 +396,7 @@
             // 
             this.colorsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.colorsButton.Image = global::P8Coder.Properties.Resources.colors1;
-            this.colorsButton.Location = new System.Drawing.Point(718, 14);
+            this.colorsButton.Location = new System.Drawing.Point(880, 14);
             this.colorsButton.Name = "colorsButton";
             this.colorsButton.Size = new System.Drawing.Size(24, 24);
             this.colorsButton.TabIndex = 23;
@@ -407,7 +408,7 @@
             // 
             this.apiButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.apiButton.Image = global::P8Coder.Properties.Resources.pico8_api;
-            this.apiButton.Location = new System.Drawing.Point(799, 14);
+            this.apiButton.Location = new System.Drawing.Point(961, 14);
             this.apiButton.Name = "apiButton";
             this.apiButton.Size = new System.Drawing.Size(24, 24);
             this.apiButton.TabIndex = 25;
@@ -419,7 +420,7 @@
             // 
             this.githubButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.githubButton.Image = global::P8Coder.Properties.Resources.github;
-            this.githubButton.Location = new System.Drawing.Point(826, 14);
+            this.githubButton.Location = new System.Drawing.Point(988, 14);
             this.githubButton.Name = "githubButton";
             this.githubButton.Size = new System.Drawing.Size(24, 24);
             this.githubButton.TabIndex = 26;
@@ -431,7 +432,7 @@
             // 
             this.pico8LaunchSettingsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pico8LaunchSettingsBtn.Image = global::P8Coder.Properties.Resources.pico8params;
-            this.pico8LaunchSettingsBtn.Location = new System.Drawing.Point(745, 14);
+            this.pico8LaunchSettingsBtn.Location = new System.Drawing.Point(907, 14);
             this.pico8LaunchSettingsBtn.Name = "pico8LaunchSettingsBtn";
             this.pico8LaunchSettingsBtn.Size = new System.Drawing.Size(24, 24);
             this.pico8LaunchSettingsBtn.TabIndex = 27;
@@ -443,7 +444,7 @@
             // 
             this.themeSwitchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.themeSwitchBtn.Image = global::P8Coder.Properties.Resources.theme;
-            this.themeSwitchBtn.Location = new System.Drawing.Point(772, 14);
+            this.themeSwitchBtn.Location = new System.Drawing.Point(934, 14);
             this.themeSwitchBtn.Name = "themeSwitchBtn";
             this.themeSwitchBtn.Size = new System.Drawing.Size(24, 24);
             this.themeSwitchBtn.TabIndex = 27;
@@ -490,7 +491,6 @@
             this.luaCodeEditor.CommentPrefix = "--";
             this.luaCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.luaCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.luaCodeEditor.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.luaCodeEditor.IsReplaceMode = false;
             this.luaCodeEditor.Language = FastColoredTextBoxNS.Language.Lua;
             this.luaCodeEditor.LeftBracket = '(';
@@ -504,7 +504,7 @@
             this.luaCodeEditor.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.luaCodeEditor.ServiceColors = null;
             this.luaCodeEditor.ServiceLinesColor = System.Drawing.Color.SkyBlue;
-            this.luaCodeEditor.Size = new System.Drawing.Size(673, 530);
+            this.luaCodeEditor.Size = new System.Drawing.Size(835, 530);
             this.luaCodeEditor.TabIndex = 0;
             this.luaCodeEditor.TabLength = 2;
             this.luaCodeEditor.TextAreaBorderColor = System.Drawing.Color.Silver;
@@ -517,7 +517,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(862, 586);
+            this.ClientSize = new System.Drawing.Size(1024, 586);
             this.Controls.Add(this.colorsPicture);
             this.Controls.Add(this.colorsButton);
             this.Controls.Add(this.githubButton);

@@ -57,6 +57,10 @@ P8Coder overwrites all lua code of the cartridge you select! Everything else (gf
 
 ## Change Log
 
+- **1.4** - 2018-05-07
+  - added: doubleclick on cart text field opens explorer and selects the cart
+  - fixed: cart loading for new file format version (p8 sections are optional since pico-8 v0.1.11e)
+
 - **1.3** - 2017-10-20
   - minor bugfixes
   - dark editor mode and toggle button

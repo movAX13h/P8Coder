@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace P8Coder.Core
@@ -80,24 +76,43 @@ namespace P8Coder.Core
             if (!readHeader(lines[0].Trim())) throw new Exception("Invalid file format! (1)");
             if (!readVersion(lines[1].Trim())) throw new Exception("Invalid file format! (2)");
 
-            Lua = getSection("__lua__", rawText).Trim();
-            Gfx = getSection("__gfx__", rawText).Replace("\n", "").Trim();
+            Gfx = "".PadRight(128 * 128, '0');
+            Map = "".PadRight(128 * 32, '0');
 
-            if (Gfx.Length != 16384)
-                throw new Exception("Invalid file format! (3)");
+            string[] sections = Regex.Split(rawText, "__(lua|gfx|gff|map|sfx|music)__");
 
-            Map = getSection("__map__", rawText).Replace("\n", "").Trim();
+            for(int i = 1; i < sections.Length; i += 2)
+            {
+                switch(sections[i])
+                {
+                    case "lua":
+                        Lua = sections[i + 1].Trim();
+                        break;
+
+                    case "gfx":
+                        Gfx = sections[i + 1].Replace("\n", "").Trim().PadRight(128*128, '0');                        
+                        break;
+
+                    case "gff":
+                        break;
+
+                    case "map":
+                        Map = sections[i + 1].Replace("\n", "").Trim().PadRight(128*32, '0');
+                        break;
+
+                    case "sfx":
+                        break;
+
+                    case "music":
+                        break;
+
+                    default:
+                        break;
+                }
+            }
 
             createSprites();
             createMapSprite();
-        }
-
-        private string getSection(string name, string data)
-        {
-            int start = data.IndexOf(name) + name.Length;
-            int end = data.IndexOf("__", start + name.Length);
-
-            return data.Substring(start, end - start).Trim();
         }
 
         private void createSprites()
@@ -112,6 +127,7 @@ namespace P8Coder.Core
 
             var bytes = new byte[data.Height * data.Stride];
             Marshal.Copy(data.Scan0, bytes, 0, bytes.Length);
+
             for (int y = 0; y < 128; y++)
             {
                 for (int x = 0; x < 128; x++)
@@ -143,18 +159,21 @@ namespace P8Coder.Core
 
         private void createMapSprite()
         {
-            MapSheet = new Bitmap(128 * 8, 64 * 8); //, PixelFormat.Format8bppIndexed
-            //applyPicoPalette(MapSheet);
+            MapSheet = new Bitmap(128 * 8, 64 * 8);
 
-            string ids = Map + Gfx.Substring(128 * 64);
+            // pico-8 shares the lower half of gfx with map
+            string ids = Map + Gfx.Substring(128 * 64); 
             int num = ids.Length / 2;
 
             var g = Graphics.FromImage(MapSheet);
+            g.Clear(Color.Black);
+
             for (int i = 0; i < num; i++)
             {
-                int id = Convert.ToInt32(ids.Substring(i * 2, 2), 16);
                 int x = 8 * (i % 128);
-                int y = 8 * (int)Math.Floor(i / 128f);
+                int y = 8 * (i / 128);
+
+                int id = Convert.ToInt32(ids.Substring(i * 2, 2), 16);
                 if (id == 0) g.FillRectangle(Brushes.Black, x,y, 8,8);
                 else g.DrawImage(Sprites[id], x, y);
             }
