@@ -46,8 +46,11 @@ If you're looking for other tools for pico-8, check the [awesome-PICO-8](https:/
 #### WARNING
 P8Coder overwrites all lua code of the cartridge you select! Everything else (gfx/map/sfx/music) remains untouched.
 
+### Known bug
+Currently the lower half of the map (if used) is not rendered correctly. Will fix this soon (2018-05-07)
+
 ## Download
-- Binary (v1.3) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
+- Binary (v1.4) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
 - Upgrade: replace the old exe with the new one
 
 ## Source code
