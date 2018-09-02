@@ -173,7 +173,11 @@ namespace P8Coder.Core
                 int x = 8 * (i % 128);
                 int y = 8 * (i / 128);
 
-                int id = Convert.ToInt32(ids.Substring(i * 2, 2), 16);
+                int id = 0;
+
+                // the second half seems to have bytes reversed
+                id = Convert.ToInt32(y >= 32 * 8 ? ids.Substring(i * 2 + 1, 1) + ids.Substring(i * 2, 1) : ids.Substring(i * 2, 2), 16);
+                
                 if (id == 0) g.FillRectangle(Brushes.Black, x,y, 8,8);
                 else g.DrawImage(Sprites[id], x, y);
             }
@@ -206,7 +210,7 @@ namespace P8Coder.Core
 
         private bool readVersion(string text)
         {
-            //NOTE: version changes with every release of pico-8
+            //NOTE: version number changes with every release of pico-8 even if no change was made to the file format
             //      This means that we have no simple check to see if the file is compatible.
 
             string[] parts = text.Split(' ');

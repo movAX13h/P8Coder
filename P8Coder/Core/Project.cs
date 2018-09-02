@@ -96,7 +96,7 @@ namespace P8Coder.Core
             {
                 fromXElement(xproject);
             }
-            catch(Exception e)
+            catch
             {
                 return false;
             }

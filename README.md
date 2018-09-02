@@ -46,19 +46,18 @@ If you're looking for other tools for pico-8, check the [awesome-PICO-8](https:/
 #### WARNING
 P8Coder overwrites all lua code of the cartridge you select! Everything else (gfx/map/sfx/music) remains untouched.
 
-### Known bug
-Currently the lower half of the map (if used) is not rendered correctly. Will fix this soon (2018-05-07)
-
 ## Download
-- Binary (v1.4) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (147kb)
+- Binary (v1.5) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (150kb)
 - Upgrade: replace the old exe with the new one
 
 ## Source code
 - C# .NET4.5, VisualStudio 15 (2017) solution
 - uses https://github.com/PavelTorgashov/FastColoredTextBox
-- should be easy :)
 
 ## Change Log
+
+- **1.5** - 2018-09-02
+  - fixed: map preview (second half was scrambled)
 
 - **1.4** - 2018-05-07
   - added: doubleclick on cart text field opens explorer and selects the cart
