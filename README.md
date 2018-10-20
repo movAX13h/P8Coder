@@ -47,7 +47,7 @@ If you're looking for other tools for pico-8, check the [awesome-PICO-8](https:/
 P8Coder overwrites all lua code of the cartridge you select! Everything else (gfx/map/sfx/music) remains untouched.
 
 ## Download
-- Binary (v1.5) from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (150kb)
+- Binary from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (150kb)
 - Upgrade: replace the old exe with the new one
 
 ## Source code
@@ -55,6 +55,9 @@ P8Coder overwrites all lua code of the cartridge you select! Everything else (gf
 - uses https://github.com/PavelTorgashov/FastColoredTextBox
 
 ## Change Log
+
+- **1.6** - 2018-10-20
+  - fixed: cart loading (label section)
 
 - **1.5** - 2018-09-02
   - fixed: map preview (second half was scrambled)
