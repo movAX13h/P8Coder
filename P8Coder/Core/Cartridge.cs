@@ -79,7 +79,7 @@ namespace P8Coder.Core
             Gfx = "".PadRight(128 * 128, '0');
             Map = "".PadRight(128 * 32, '0');
 
-            string[] sections = Regex.Split(rawText, "__(lua|gfx|gff|map|sfx|music)__");
+            string[] sections = Regex.Split(rawText, "__(lua|gfx|gff|map|sfx|music|label)__");
 
             for(int i = 1; i < sections.Length; i += 2)
             {
