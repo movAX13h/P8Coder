@@ -56,6 +56,10 @@ P8Coder overwrites all lua code of the cartridge you select! Everything else (gf
 
 ## Change Log
 
+- **1.7** - 2020-06-23
+  - fixed: syntax highlighter fix
+  - added: new pico-8 keywords
+
 - **1.6** - 2018-10-20
   - fixed: cart loading (label section)
 
