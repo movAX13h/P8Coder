@@ -481,7 +481,7 @@
         '\'',
         '\''};
             this.luaCodeEditor.AutoIndentChars = false;
-            this.luaCodeEditor.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>.+)\r\n";
+            this.luaCodeEditor.AutoIndentCharsPatterns = "\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>.+)\n";
             this.luaCodeEditor.AutoIndentExistingLines = false;
             this.luaCodeEditor.AutoScrollMinSize = new System.Drawing.Size(35, 14);
             this.luaCodeEditor.BackBrush = null;
@@ -491,6 +491,8 @@
             this.luaCodeEditor.CommentPrefix = "--";
             this.luaCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.luaCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.luaCodeEditor.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.luaCodeEditor.HighlightingRangeType = FastColoredTextBoxNS.HighlightingRangeType.VisibleRange;
             this.luaCodeEditor.IsReplaceMode = false;
             this.luaCodeEditor.Language = FastColoredTextBoxNS.Language.Lua;
             this.luaCodeEditor.LeftBracket = '(';

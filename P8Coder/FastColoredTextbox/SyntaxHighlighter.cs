@@ -75,7 +75,8 @@ namespace FastColoredTextBoxNS
 
         protected Regex LuaCommentRegex1,
                       LuaCommentRegex2,
-                      LuaCommentRegex3;
+                      LuaCommentRegex3,
+                      LuaCommentRegex4;
 
         protected Regex LuaKeywordRegex;
         protected Regex LuaNumberRegex;
@@ -1162,6 +1163,7 @@ namespace FastColoredTextBoxNS
             LuaCommentRegex1 = new Regex(@"--.*$", RegexOptions.Multiline | RegexCompiledOption);
             LuaCommentRegex2 = new Regex(@"(--\[\[.*?\]\])|(--\[\[.*)", RegexOptions.Singleline | RegexCompiledOption);
             LuaCommentRegex3 = new Regex(@"(--\[\[.*?\]\])|(.*\]\])", RegexOptions.Singleline | RegexOptions.RightToLeft | RegexCompiledOption);
+            LuaCommentRegex4 = new Regex(@"(--\[\[(.|\n)*?\]\])", RegexOptions.Singleline | RegexCompiledOption);
             LuaNumberRegex = new Regex(@"\b\d+[\.]?\d*([eE]\-?\d+)?[lLdDfF]?\b|\b0x[a-fA-F\d]+\b", RegexCompiledOption);
             LuaKeywordRegex =
                 new Regex(
@@ -1204,6 +1206,7 @@ namespace FastColoredTextBoxNS
             range.SetStyle(CommentStyle, LuaCommentRegex1);
             //range.SetStyle(CommentStyle, LuaCommentRegex2);
             //range.SetStyle(CommentStyle, LuaCommentRegex3);
+            range.SetStyle(CommentStyle, LuaCommentRegex4);
             //number highlighting
             range.SetStyle(NumberStyle, LuaNumberRegex);
             //keyword highlighting
