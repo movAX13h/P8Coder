@@ -1200,19 +1200,21 @@ namespace FastColoredTextBoxNS
             //
             if (LuaStringRegex == null)
                 InitLuaRegex();
-            //string highlighting
-            range.SetStyle(StringStyle, LuaStringRegex);
+
             //comment highlighting
             range.SetStyle(CommentStyle, LuaCommentRegex1);
             //range.SetStyle(CommentStyle, LuaCommentRegex2);
             //range.SetStyle(CommentStyle, LuaCommentRegex3);
             range.SetStyle(CommentStyle, LuaCommentRegex4);
+            //string highlighting
+            range.SetStyle(StringStyle, LuaStringRegex);
             //number highlighting
             range.SetStyle(NumberStyle, LuaNumberRegex);
             //keyword highlighting
             range.SetStyle(KeywordStyle, LuaKeywordRegex);
             //functions highlighting
             range.SetStyle(FunctionsStyle, LuaFunctionsRegex);
+
             //clear folding markers
             range.ClearFoldingMarkers();
             //set folding markers
