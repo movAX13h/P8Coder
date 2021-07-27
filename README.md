@@ -1,7 +1,7 @@
 # P8Coder
 P8Coder is a handy little tool that replaces the lua code in pico-8 cartridges (p8) with the code you write in P8Coder (Windows only, untested with Mono).
 
-[Author release blog post](http://blog.thrill-project.com/p8coder-pico-8-programming-tool/)
+[Author release blog post](https://blog.thrill-project.com/p8coder-pico-8-programming-tool/)
 
 It allows to group functions (any code actually) that belong to the same entity/unit in your game and lets you have functions (any kind of code sections) as tabs.
 
@@ -47,7 +47,7 @@ If you're looking for other tools for pico-8, check the [awesome-PICO-8](https:/
 P8Coder overwrites all lua code of the cartridge you select! Everything else (gfx/map/sfx/music) remains untouched.
 
 ## Download
-- Binary from author server: http://thrill-project.com/archiv/coding/P8Coder.zip (150kb)
+- Binary from author server: https://thrill-project.com/archiv/coding/P8Coder.zip (150kb)
 - Upgrade: replace the old exe with the new one
 
 ## Source code
