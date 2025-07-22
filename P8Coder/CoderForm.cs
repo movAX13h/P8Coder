@@ -669,7 +669,7 @@ namespace P8Coder
 
         private void apiButton_Click(object sender, EventArgs e)
         {
-            Process.Start("https://neko250.github.io/pico8-api/");            
+            Process.Start("https://pico-8.github.io/pico8-api/");            
         }
 
         private void githubButton_Click(object sender, EventArgs e)
