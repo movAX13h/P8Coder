@@ -56,6 +56,11 @@ P8Coder overwrites all lua code of the cartridge you select! Everything else (gf
 
 ## Change Log
 
+- **1.9** - 2025-07-23
+  - support for punyfont _ENV (uppercase) in lua code which is the pico-8 environment
+  - update pico-8 API hints
+  - fixed: cheatsheet URL
+
 - **1.8** - 2020-07-07
   - fixed: comment formatting thanks to nosnibor28
 
