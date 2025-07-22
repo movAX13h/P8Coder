@@ -107,21 +107,26 @@ namespace P8Coder.Core
         private string assembleCode()
         {
             string nl = "\n";
-            string code = "--" + Name.ToLower() + nl;
-            code += "--by " + Author.ToLower() + nl + nl;
+            string result = "--" + Name.ToLower() + nl;
+            result += "--by " + Author.ToLower() + nl + nl;
 
             foreach(Entity entity in Entities)
             {
                 if (!entity.Enabled) continue;
 
-                code += "--" + entity.Name + nl;
+                result += "--" + entity.Name + nl;
                 foreach(Function func in entity.Functions)
                 {
-                    if (func.Enabled) code += func.Code.ToLower() + nl + nl;
+                    if (func.Enabled)
+                    {
+                        // support punyfont "_ENV" which is the pico8 environment
+                        string code = func.Code.Replace("_ENV", "{puny-env}").ToLower().Replace("{puny-env}", "_ENV");
+                        result += code + nl + nl;
+                    }
                 }
             }
 
-            return code;
+            return result;
         }
 
         public bool WriteCart()
