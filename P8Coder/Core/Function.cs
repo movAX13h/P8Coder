@@ -27,7 +27,7 @@ namespace P8Coder.Core
         public XElement ToXElement()
         {
             return new XElement("function", 
-                new XAttribute("name", Name),
+                new XAttribute("name", Name == null ? "unnamed" : Name),
                 new XAttribute("enabled", Enabled ? 1 : 0),
                 Code);
         }
