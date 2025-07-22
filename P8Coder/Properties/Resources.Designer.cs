@@ -19,7 +19,7 @@ namespace P8Coder.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -161,22 +161,18 @@ namespace P8Coder.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die load(filename) -- load cart
-        ///save(filename) -- save cart
-        ///folder() -- open folder
-        ///ls() -- list items
-        ///run() -- boot cart
-        ///resume() -- resume cart execution
-        ///reboot() -- reboot pico8
-        ///stat(x) -- 0 = mem; 1 = cpu;
-        ///info() -- print cart info
-        ///time() -- returns seconds since last reboot
-        ///flip() -- flip screen back buffer
-        ///printh(str) -- print string to terminal
-        ///clip([x, y, w, h]) -- set screen clipping region
-        ///pget(x, y) -- get pixel colour
-        ///pset(x, y, [c]) -- set pixel colour
-        ///sget(x, y) -- get spritesheet p [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die abs(x) -- x absolute value
+        ///add(t, v) -- add v to t
+        ///all(t) -- used in &apos;for v in all(t)&apos; loops
+        ///atan2(dx, dy) -- convert (dx, dy) to an angle in [0..1]
+        ///band(x, y) -- bitwise conjunction
+        ///bnot(x) -- bitwise negation
+        ///bor(x, y) -- bitwise disjunction
+        ///btn([i, [p]]) -- get button i state for player p
+        ///btnp([i, [p]]) -- was button just pressed ? turbo after 12 frames
+        ///bxor(x, y) -- bitwise exclusive disjunction
+        ///camera([x, y]) -- set camera position
+        ///cartdata(id) -- open cart data named id (once per execution! [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string pico8api {
             get {
