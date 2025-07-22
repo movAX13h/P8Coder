@@ -244,7 +244,7 @@ namespace P8Coder
             {
                 entitiesList.Items.Add(entity, entity.Enabled);
             }
-            entitiesList.SelectedIndex = id;
+            entitiesList.SelectedIndex = (id < 0 || id >= entitiesList.Items.Count) ? 0 : id;
             lockGUIUpdates = false;
         }
 
