@@ -45,7 +45,7 @@ mget(x, y) -- get map value
 mid(x, y, z) -- x/y/z middle value
 min(x, y) -- x/y minimum
 mset(x, y, v) -- set map value
-music([n, [fade_len, [channel_mask]]]) -- play music, -1: stop
+music([n, [fade_len, [channel_mask]]]) -- play music; n = -1: stop
 pairs(t) -- used in 'for k,v in pairs(t)' loops
 pal(c0, c1, [p]) -- switch colour 0 to colour 1; p = 0 = draw palette; p = 1 = screen palette
 palt(c, t) -- set transparency for colour to t (bool)
@@ -63,9 +63,9 @@ resume() -- resume cart execution
 rnd(x) -- random, 0 <= n < x
 run() -- boot cart
 save(filename) -- save cart
-sfx(n, [channel, [offset]]) -- play sfx, -1: stop in channel, -2: release loop in channel
+sfx(n, [channel, [offset]]) -- play sfx; n = -1: stop in channel; n = -2: release loop in channel
 sget(x, y) -- get spritesheet pixel colour
-sgn(x) -- returns argument sign, -1, 0, 1
+sgn(x) -- returns argument sign: -1 or 1; sgn(0) = 1
 shl(x, y) -- shift left
 shr(x, y) -- shift right
 sin(x) -- x sine, [0..1]
